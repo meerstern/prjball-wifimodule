@@ -1,6 +1,6 @@
 # prjball-wifimodule
 ESP-WROOM-02 for ProjectionBall.  
-This codes enable remote control through wifi.  
+This code enables to control in remote area through wifi.  
 
 ProjectionBallとESP-WROOM-02を接続して遠隔で操作ができます。  
 アクセスポイント経由(クライアントモード)と直接接続(サーバモード)の両方に対応しています。  
