@@ -14,8 +14,8 @@ ESP-WROOM-02の書き込み方等についてはGoogle先生にお尋ねくだ�
   * 描画モード切替
   * アクセスポイント経由時のSSID、PASS設定
   
-![PBR](http://meerstern.up.seesaa.net/image/iphone.PNG "PBR")
-  
+
+<img src="http://meerstern.up.seesaa.net/image/iphone.PNG" width="260">
   
 ## ハードウェア設定
   * ここでは最低限の配線について説明します。
@@ -26,8 +26,12 @@ ESP-WROOM-02の書き込み方等についてはGoogle先生にお尋ねくだ�
   * ESP-WROOM-02のTXをProjectionBallの基板上のRXへ接続します。
   * ESP-WROOM-02のIO15ををProjectionBallの基板上のGNDへ接続します。
   
-![power](http://meerstern.up.seesaa.net/image/power.png "power")
-![uart](http://meerstern.up.seesaa.net/image/uart.png "uart")
+
+<img src="http://meerstern.up.seesaa.net/image/power.png" width="260">
+
+
+<img src="http://meerstern.up.seesaa.net/image/uart.png" width="260">
+
   
   
   
