@@ -1,4 +1,4 @@
-String str_html;
+﻿String str_html;
 
 void SetHtml(){
  str_html+="<!DOCTYPE html>";
@@ -26,6 +26,17 @@ void SetHtml(){
  str_html+="send(\"/local/\");";
  str_html+="document.getElementById(\"NOWstatus\").innerHTML=\"[Local]\";";
  str_html+="}";
+ str_html+="function sendStart(){";
+ str_html+="send(\"/start/\");";
+ str_html+="document.getElementById(\"Pausestatus\").innerHTML=\"[Start]\";";
+ str_html+="}";
+ str_html+="function sendStop(){";
+ str_html+="send(\"/stop/\");";
+ str_html+="document.getElementById(\"Pausestatus\").innerHTML=\"[Stop]\";";
+ str_html+="}";
+ str_html+="function sendFPause(){";
+ str_html+="send(\"/fpause/\");";
+ str_html+="}"; 
  str_html+="function sendInternal(){";
  str_html+="send(\"/internal/\");";
  str_html+="document.getElementById(\"Datastatus\").innerHTML=\"[Internal Data]\";";
@@ -74,18 +85,32 @@ void SetHtml(){
  str_html+="</script>";
  
  str_html+="<div>";
- str_html+="<h2 >ProjectionBall Remote</h2>";
+ str_html+="<h2 >Projection Ball Remote</h2>";
  str_html+="</div>";
  
  str_html+="<div onclick=\"obj=document.getElementById('open0').style; obj.display=(obj.display=='none')?'block':'none';\">";
- str_html+="<h1 style=\"cursor:pointer;\">▼ Local/Remote</h1>";
+ str_html+="<h1 style=\"cursor:pointer;\">▼ Control</h1>";
  str_html+="</div>";
  str_html+="<div id=\"open0\" style=\"display:none;clear:both;\">";
- str_html+="</br>";
- str_html+="<button id=\"remote\" onClick=sendRemote() style=\"WIDTH:200px; HEIGHT: 30px\">Remote Mode</button>";
- str_html+="</br>";
- str_html+="<button id=\"local\" onClick=sendLocal() style=\"WIDTH:200px; HEIGHT: 30px\">Local Mode</button>";
+ str_html+="<p >Control Priority  </p>";
+ str_html+="<button id=\"remote\" onClick=sendRemote() style=\"WIDTH:200px; HEIGHT: 30px\">Remote Mode</button></br>";
+ str_html+="<button id=\"local\" onClick=sendLocal() style=\"WIDTH:200px; HEIGHT: 30px\">Local Mode</button></br>";
  str_html+="<p id=\"NOWstatus\"></p>";
+ str_html+="<p >Start/Stop  </p>";
+ str_html+="<button id=\"start\" onClick=sendStart() style=\"WIDTH:200px; HEIGHT: 30px\">Start</button></br>";
+ str_html+="<button id=\"stop\" onClick=sendStop() style=\"WIDTH:200px; HEIGHT: 30px\">Stop</button></br>";
+ str_html+="<p id=\"Pausestatus\"></p>";
+ str_html+="<p >Angle  </p><p id=\"Anglestatus\"></p>";
+ str_html+="<form method='post'>";
+ str_html+="<input type='number' min='0' max='360'  name='Angle' style=\"WIDTH:135px\" placeholder='Angle (0~360°)'>";
+ str_html+="<input type='submit' value='Send'></br>";
+ str_html+="</form>";
+ str_html+="<p >Frame Control  </p><p id=\"Framestatus\"></p>";
+ str_html+="<form method='post'>";
+ str_html+="<input type='number' min='0' max='18' name='Frame'  style=\"WIDTH:135px\" placeholder='Frame No.(0~18)'>";
+ str_html+="<input type='submit' value='Send'></br></br>";
+ str_html+="</form>";
+ str_html+="<button id=\"fpause\" onClick=sendFPause() style=\"WIDTH:200px; HEIGHT: 30px\">Frame Pause</button>";
  str_html+="</div>";
  
  str_html+="<div onclick=\"obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';\">";
@@ -144,8 +169,8 @@ void SetHtml(){
  str_html+="<h1 style=\"cursor:pointer;\">▼ INFO</h1>";
  str_html+="</div>";
  str_html+="<div id=\"open9\" style=\"display:none;clear:both;\">";
- str_html+="<p >Version : 1.0.0</p>";
- str_html+="<p >Release : 16/12/28</p>";
+ str_html+="<p >Version : 1.1.0</p>";
+ str_html+="<p >Release : 17/01/12</p>";
  str_html+="<a href=\"http://projectionball.jp/\">Official Web Site</a>";
  str_html+="</br></br>";
  str_html+="<a href=\"https://www.facebook.com/projectionball\">Official Facebook</a>";

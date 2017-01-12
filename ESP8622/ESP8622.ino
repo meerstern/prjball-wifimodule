@@ -1,4 +1,4 @@
-#include <ESP8266WiFi.h>
+﻿#include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <WiFiUdp.h>
 #include <EEPROM.h>
@@ -7,8 +7,8 @@
 
 #define SSID_NAME	"prjball"
 #define SSID_PASS	""
-#define WIFI_SSID "YOURAP"
-#define WIFI_PWD "yourpass"
+#define WIFI_SSID "YOURSSID"
+#define WIFI_PWD "YOURPASS"
 
 #define V3 
 //#define FORCE_AP_MODE
@@ -31,20 +31,33 @@ void RootGet() {
 }
 
 void RootPost() {
-	String ssid = server.arg("SSID");
-	String pass = server.arg("PASS");
+  String ssid = server.arg("SSID");
+  String pass = server.arg("PASS");
+  String angle = server.arg("Angle");
+  String frame = server.arg("Frame");
   server.send(200, "text/html", str_html); 
+  //server.send(200, "text/html","OK");
   
-  char chrssid[32];
-  char chrpass[32];
-  ssid.toCharArray(chrssid,sizeof(chrssid));
-  pass.toCharArray(chrpass,sizeof(chrpass));;
-  strcpy(wifi_con.ssid, chrssid);
-	strcpy(wifi_con.pass, chrpass);
-	EEPROM.put<Wifi_Config>(0, wifi_con);
-	EEPROM.commit();
-	Serial.println("***Saved Wifi Settings***");
-	Serial.println(wifi_con.ssid);
+  if(frame!=""){
+  	Serial.print("fno=");
+  	Serial.println(frame);
+  }
+  else if(angle!=""){
+  	Serial.print("deg=");
+  	Serial.println(angle);
+  }
+  else if(ssid!=""){
+  	char chrssid[32];
+  	char chrpass[32];
+  	ssid.toCharArray(chrssid,sizeof(chrssid));
+  	pass.toCharArray(chrpass,sizeof(chrpass));;
+  	strcpy(wifi_con.ssid, chrssid);
+  	strcpy(wifi_con.pass, chrpass);
+  	EEPROM.put<Wifi_Config>(0, wifi_con);
+  	EEPROM.commit();
+  	Serial.println("***Saved Wifi Settings***");
+  	Serial.println(wifi_con.ssid);		  
+  }  
 }
 
 void SetRemote(){
@@ -54,6 +67,21 @@ void SetRemote(){
 
 void SetLocal(){
   Serial.println("swm");
+  server.send(200, "text/html","OK");
+}
+
+void SetStart(){
+  Serial.println("srt");
+  server.send(200, "text/html","OK");
+}
+
+void SetStop(){
+  Serial.println("stp");
+  server.send(200, "text/html","OK");
+}
+
+void SetFPause(){
+  Serial.println("fpa");
   server.send(200, "text/html","OK");
 }
 
@@ -180,6 +208,9 @@ void setup() {
 	server.on("/", HTTP_POST, RootPost);	
 	server.on("/remote/", SetRemote);
 	server.on("/local/", SetLocal);
+	server.on("/start/", SetStart);
+	server.on("/stop/", SetStop);
+	server.on("/fpause/", SetFPause);
 	server.on("/internal/", SetInternal);
 	server.on("/memory/", SetMemory);
 	server.on("/mode0/", SetMode0);//animation
