@@ -1,4 +1,4 @@
-﻿#include <ESP8266WiFi.h>
+#include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <WiFiUdp.h>
 #include <EEPROM.h>
@@ -10,7 +10,6 @@
 #define WIFI_SSID "YOURSSID"
 #define WIFI_PWD "YOURPASS"
 
-#define V3 
 //#define FORCE_AP_MODE
 #define COUNT_MAX	50
 
@@ -35,8 +34,10 @@ void RootPost() {
   String pass = server.arg("PASS");
   String angle = server.arg("Angle");
   String frame = server.arg("Frame");
+  String sstr = server.arg("SString");
+  String sdate = server.arg("SDate");
+  String stime = server.arg("STime");
   server.send(200, "text/html", str_html); 
-  //server.send(200, "text/html","OK");
   
   if(frame!=""){
   	Serial.print("fno=");
@@ -45,6 +46,18 @@ void RootPost() {
   else if(angle!=""){
   	Serial.print("deg=");
   	Serial.println(angle);
+  }
+  else if(sstr!=""){
+	Serial.print("stg=");
+  	Serial.println(sstr); 
+  }
+  else if(sdate!=""){
+	Serial.print("day=");
+  	Serial.println(sdate);   
+  }
+  else if(stime!=""){
+	Serial.print("tim=");
+  	Serial.println(stime);    
   }
   else if(ssid!=""){
   	char chrssid[32];
@@ -111,6 +124,19 @@ void SetMode3(){
   Serial.println("alw");
   server.send(200, "text/html","OK");
 }
+void SetMode4(){
+  Serial.println("awt");
+  server.send(200, "text/html","OK");
+}
+void SetMode5(){
+  Serial.println("dwt");
+  server.send(200, "text/html","OK");
+}
+void SetMode6(){
+  Serial.println("dym");
+  server.send(200, "text/html","OK");
+}
+
 void SetPattern0(){
   Serial.println("sw0");
   server.send(200, "text/html","OK");
@@ -125,6 +151,26 @@ void SetPattern2(){
 }
 void SetPattern3(){
   Serial.println("sw3");
+  server.send(200, "text/html","OK");
+}
+void SetPattern4(){
+  Serial.println("sw4");
+  server.send(200, "text/html","OK");
+}
+void SetPattern5(){
+  Serial.println("sw5");
+  server.send(200, "text/html","OK");
+}
+void SetPattern6(){
+  Serial.println("sw6");
+  server.send(200, "text/html","OK");
+}
+void SetPattern7(){
+  Serial.println("sw7");
+  server.send(200, "text/html","OK");
+}
+void SetPattern8(){
+  Serial.println("sw8");
   server.send(200, "text/html","OK");
 }
 
@@ -217,10 +263,18 @@ void setup() {
 	server.on("/mode1/", SetMode1);
 	server.on("/mode2/", SetMode2);
 	server.on("/mode3/", SetMode3);
+	server.on("/mode4/", SetMode4);
+	server.on("/mode5/", SetMode5);
+	server.on("/mode6/", SetMode6);
 	server.on("/pattern0/", SetPattern0);
 	server.on("/pattern1/", SetPattern1);
 	server.on("/pattern2/", SetPattern2);
 	server.on("/pattern3/", SetPattern3);
+	server.on("/pattern4/", SetPattern4);
+	server.on("/pattern5/", SetPattern5);
+	server.on("/pattern6/", SetPattern6);
+	server.on("/pattern7/", SetPattern7);
+	server.on("/pattern8/", SetPattern8);
   server.begin();
   
    if (!MDNS.begin(SSID_NAME)) {
