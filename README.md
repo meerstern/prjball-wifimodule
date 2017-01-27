@@ -13,8 +13,10 @@ ESP-WROOM-02の書き込み方等についてはGoogle先生にお尋ねくだ�
   * 描画データ切替
   * 描画モード切替
   * アクセスポイント経由時のSSID、PASS設定
+  * 文字列入力*  
+  * 日付/時刻設定*  
+  ※一部の機能*はProjectionBall本体のファームウェアのアップデートが必要です
   
-
 <img src="http://meerstern.up.seesaa.net/image/iphone.PNG" width="260">
   
 ## ハードウェア設定
@@ -25,6 +27,7 @@ ESP-WROOM-02の書き込み方等についてはGoogle先生にお尋ねくだ�
   * ESP-WROOM-02のGNDはProjectionBallの基板上のGNDから配線します。
   * ESP-WROOM-02のTXをProjectionBallの基板上のRXへ接続します。
   * ESP-WROOM-02のIO15ををProjectionBallの基板上のGNDへ接続します。
+  * ESP-WROOM-02のENとIO2をProjectionBallの基板上の3.3Vへ接続します。
   
 
 <img src="http://meerstern.up.seesaa.net/image/power.png" width="260">
@@ -57,14 +60,15 @@ ESP-WROOM-02の書き込み方等についてはGoogle先生にお尋ねくだ�
   * 接続が成功した場合、同一のアクセスポイントへ接続されたスマートフォンやPC等のブラウザから操作ができます。
   * スマートフォンやPC等のブラウザのアドレス画面で「prjball.local」と打ち込んで「Enter」キーを押してください。
   * 「ProjectionBall Remote」画面が表示されたら、接続完了です。
-  * 再びサーバモードで接続したい場合は「Wifi」タブの「SSID」「PASS」で適当な文字を設定してください。
+  * 再びサーバモードで接続したい場合は「Wifi」タブの「SSID」「PASS」で適当な文字を設定してください。  
+    ※適当な文字を入力することでアクセスポイントが見つからないため、サーバモードになります  
   
 ## ProjectionBall Remote使用方法　　
   * ProjectionBall電源入れた直後は本体のスイッチの設定が優先されます。
   * Wifiの設定を優先するため、最初に「Local/Remote」タブの「Remote」を押してください。  
   * 描画データの読み込み先を切り替える際には「Data」タブから設定してください。
   * 描画データの描画方法を切り替える際には「Mode」タブから設定してください。
-  * 描画データの描画パターンを切り替える際には「Pattern」タブから設定してください。
-
+  * 描画データの描画パターンを切り替える際には「Pattern」タブから設定してください。　
+ 
  
 License -MIT
