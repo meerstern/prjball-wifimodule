@@ -22,7 +22,7 @@ ESP-WROOM-02の書き込み方等についてはGoogle先生にお尋ねくだ�
 ## ハードウェア設定
   * ここでは最低限の配線について説明します。
   * 既にESP-WROOM-02へ本コードが書き込み済みの状態から説明します。
-  * ESP-WROOM-02へ書き込み済み方法はGoogle先生にお尋ねください。  
+  * ESP-WROOM-02へ書き込み方法はGoogle先生にお尋ねください。  
   * ESP-WROOM-02の電源はProjectionBallの基板上の3.3Vから配線します。
   * ESP-WROOM-02のGNDはProjectionBallの基板上のGNDから配線します。
   * ESP-WROOM-02のTXをProjectionBallの基板上のRXへ接続します。
