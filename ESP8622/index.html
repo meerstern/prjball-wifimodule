@@ -80,6 +80,10 @@
 				send("/mode6/");
 				document.getElementById("MODEstatus").innerHTML="[Date]";
 			}
+			function sendMode7(){
+				send("/mode7/");
+				document.getElementById("MODEstatus").innerHTML="[String]";
+			}
 			function sendPattern0(){
 				send("/pattern0/");
 				document.getElementById("PATTERNstatus").innerHTML="[Star/Data0]";
@@ -179,9 +183,9 @@
 			<button id="mode5" onClick=sendMode5() style="WIDTH:200px; HEIGHT: 30px">Digital Watch*</button>	
 			</br>
 			<button id="mode6" onClick=sendMode6() style="WIDTH:200px; HEIGHT: 30px">Date*</button>	
-			
+			</br>
+			<button id="mode7" onClick=sendMode7() style="WIDTH:200px; HEIGHT: 30px">String*</button>	
 				
-			<p >String Mode*  </p>
 			<form method='post'>
 			<input type='text' name='SString' style="WIDTH:135px" placeholder='String'>
 			<input type='submit' value='Send'>
@@ -238,8 +242,8 @@
 		<h1 style="cursor:pointer;">▼ INFO</h1>
 		</div>
 		<div id="open9" style="display:none;clear:both;">
-			<p >Version : 2.0.0</p>
-			<p >Release : 17/01/26</p>
+			<p >Version : 2.0.1</p>
+			<p >Release : 17/02/02</p>
 			<a href="http://projectionball.jp/"　title="">[ja]Official Web Site</a>
 			</br></br>
 			<a href="http://projectionball.com/"　title="">[en]Official Web Site</a>

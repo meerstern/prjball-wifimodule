@@ -136,6 +136,18 @@ void SetMode6(){
   Serial.println("dym");
   server.send(200, "text/html","OK");
 }
+void SetMode7(){
+  Serial.println("stm");
+  server.send(200, "text/html","OK");
+}
+void SetMode8(){
+  Serial.println("");
+  server.send(200, "text/html","OK");
+}
+void SetMode9(){
+  Serial.println("");
+  server.send(200, "text/html","OK");
+}
 
 void SetPattern0(){
   Serial.println("sw0");
@@ -173,6 +185,11 @@ void SetPattern8(){
   Serial.println("sw8");
   server.send(200, "text/html","OK");
 }
+void SetPattern9(){
+  Serial.println("sw9");
+  server.send(200, "text/html","OK");
+}
+
 
 void setup() {
 	
@@ -266,6 +283,9 @@ void setup() {
 	server.on("/mode4/", SetMode4);
 	server.on("/mode5/", SetMode5);
 	server.on("/mode6/", SetMode6);
+	server.on("/mode7/", SetMode7);
+	server.on("/mode8/", SetMode8);
+	server.on("/mode9/", SetMode9);
 	server.on("/pattern0/", SetPattern0);
 	server.on("/pattern1/", SetPattern1);
 	server.on("/pattern2/", SetPattern2);
@@ -275,6 +295,7 @@ void setup() {
 	server.on("/pattern6/", SetPattern6);
 	server.on("/pattern7/", SetPattern7);
 	server.on("/pattern8/", SetPattern8);
+	server.on("/pattern9/", SetPattern9);
   server.begin();
   
    if (!MDNS.begin(SSID_NAME)) {

@@ -93,6 +93,10 @@ void SetHtml(){
  str_html+="send(\"/mode6/\");";
  str_html+="document.getElementById(\"MODEstatus\").innerHTML=\"[Date]\";";
  str_html+="}";
+ str_html+="function sendMode7(){";
+ str_html+="send(\"/mode7/\");";
+ str_html+="document.getElementById(\"MODEstatus\").innerHTML=\"[String]\";";
+ str_html+="}";
  
  str_html+="function sendPattern0(){";
  str_html+="send(\"/pattern0/\");";
@@ -198,7 +202,8 @@ void SetHtml(){
  str_html+="<button id=\"mode5\" onClick=sendMode5() style=\"WIDTH:200px; HEIGHT: 30px\">Digital Watch*</button>";
  str_html+="</br>";
  str_html+="<button id=\"mode6\" onClick=sendMode6() style=\"WIDTH:200px; HEIGHT: 30px\">Date*</button>";
- str_html+="<p >String Mode*  </p>";
+ str_html+="</br>";
+ str_html+="<button id=\"mode7\" onClick=sendMode7() style=\"WIDTH:200px; HEIGHT: 30px\">String*</button>";
  str_html+="<form method='post'>";
  str_html+="<input type='text' name='SString' style=\"WIDTH:135px\" placeholder='String'>";
  str_html+="<input type='submit' value='Send'>";
@@ -258,8 +263,8 @@ void SetHtml(){
  str_html+="<h1 style=\"cursor:pointer;\">▼ INFO</h1>";
  str_html+="</div>";
  str_html+="<div id=\"open9\" style=\"display:none;clear:both;\">";
- str_html+="<p >Version : 2.0.0</p>";
- str_html+="<p >Release : 17/01/26</p>";
+ str_html+="<p >Version : 2.0.1</p>";
+ str_html+="<p >Release : 17/02/02</p>";
  str_html+="<a href=\"http://projectionball.jp/\">[ja]Official Web Site</a>";
  str_html+="</br></br>";
  str_html+="<a href=\"http://projectionball.com/\">[en]Official Web Site</a>";
