@@ -24,7 +24,7 @@ void SetHtml(){
  str_html+="function dsptime() {";
  str_html+="DD = new Date();";
  str_html+="Year = ('00'+ DD.getFullYear()).slice(-2);";
- str_html+="Month =('00'+ DD.getMonth() + 1).slice(-2);";
+ str_html+="Month =('00'+ (DD.getMonth() + 1)).slice(-2);";
  str_html+="Day	= ('00'+ DD.getDate()).slice(-2);";
  str_html+="Hours = ('00'+ DD.getHours()).slice(-2);";
  str_html+="Minutes = ('00'+ DD.getMinutes()).slice(-2);";

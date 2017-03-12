@@ -16,7 +16,7 @@
 			function dsptime() {
 				DD = new Date();
 				Year = ('00'+ DD.getFullYear()).slice(-2);
-				Month =('00'+ DD.getMonth() + 1).slice(-2);
+				Month =('00'+ (DD.getMonth() + 1)).slice(-2);
 				Day	= ('00'+ DD.getDate()).slice(-2);
 				Hours = ('00'+ DD.getHours()).slice(-2);
 				Minutes = ('00'+ DD.getMinutes()).slice(-2);
